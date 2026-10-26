@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Target Travel Adventures</title>
+    <style>
+        /* CSS Reset & Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+            color: #4b5563; /* Dark grey */
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header Styles */
+        .header-section {
+            text-align: center;
+            padding-bottom: 40px;
+            margin-bottom: 20px;
+        }
+
+        .header-title {
+            display: inline-block;
+            font-size: 2.25rem;
+            font-weight: 300;
+            color: #475569; /* Dark slate */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            line-height: 1.3;
+        }
+
+        @media (min-width: 768px) {
+            .header-title {
+                font-size: 3.5rem;
+                letter-spacing: 4px;
+            }
+        }
+
+        /* Text Styles */
+        .content-section p {
+            margin-bottom: 24px;
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+
+        /* 3-Column Image Row using CSS Grid */
+        .three-column-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two images side-by-side on mobile */
+            gap: 16px;
+            align-items: center;
+            margin: 24px 0 32px 0;
+        }
+
+        .col {
+            width: 100%;
+        }
+
+        /* Set explicit order for mobile layout */
+        .image-col-1 {
+            order: 1;
+        }
+
+        .image-col-2 {
+            order: 2;
+        }
+
+        .middle-text {
+            order: 3;
+            grid-column: 1 / -1; /* Spans across both image columns on mobile */
+            text-align: center;
+            font-size: 1rem; /* Slightly smaller text on mobile */
+            font-weight: 500;
+            color: #334155;
+            padding-top: 8px;
+        }
+
+        .col img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            display: block;
+            margin: 0;
+        }
+
+        /* Switch to horizontal row on wider screens */
+        @media (min-width: 768px) {
+            .three-column-row {
+                grid-template-columns: 1fr 1fr 1fr; /* Three columns on desktop */
+                gap: 24px;
+                margin: 32px 0 40px 0;
+            }
+
+            .middle-text {
+                order: 2; /* Moves back to the middle */
+                grid-column: auto; /* Resets to take up one column */
+                font-size: 1.125rem;
+                padding: 0 16px;
+                padding-top: 0;
+            }
+
+            .image-col-2 {
+                order: 3;
+            }
+        }
+
+        /* Links/Buttons Section */
+        .links-title {
+            color: #4b5563;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            font-size: 1.25rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        hr.divider {
+            border: 0;
+            border-top: 1px solid #e5e7eb;
+            margin-bottom: 32px;
+        }
+
+        .button-group {
+            display: flex;
+            flex-direction: column; /* Stack vertically on mobile */
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        @media (min-width: 600px) {
+            .button-group {
+                flex-direction: row; /* Side by side on larger screens */
+            }
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 14px 28px;
+            background-color: #f3f4f6; /* Light grey */
+            color: #374151; /* Dark text */
+            border-radius: 9999px; /* Pill shape */
+            text-decoration: none; /* No underline */
+            font-weight: 500;
+            font-size: 1rem;
+            transition: background-color 0.2s ease;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #e5e7eb;
+        }
+
+        .btn svg {
+            width: 20px;
+            height: 20px;
+            margin-left: 12px;
+            color: #9ca3af;
+        }
+
+        /* Footer / Contact Section */
+        .contact-footer {
+            margin-top: 42px;
+            padding-top: 30px;
+            border-top: 1px solid #e5e7eb;
+            text-align: center;
+        }
+
+        .contact-footer h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 24px;
+        }
+
+        .contact-info p {
+            margin-bottom: 8px;
+            font-size: 1.125rem;
+            color: #4b5563;
+        }
+
+        .contact-info .brand-name {
+            font-weight: 600;
+            color: #374151;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <!-- Header -->
+        <header class="header-section">
+            <h1 class="header-title">Target Travel<br>Adventures</h1>
+        </header>
+
+        <!-- Main Content -->
+        <section class="content-section">
+            <!-- First Paragraph -->
+            <p>Stanley D. Scheetz, President of Target Travel Adventures, Travel Club and Attorney at Law (retired), B.A. B.S. - ONU ‘68 - J.D.’74, has fully retired after being in law practice for 50 years in Medina, Ohio, effective 11/6/2026 and in retirement has elected to devote volunteer time and efforts to his former undergraduate and law school, i.e. Ohio Northern University, and his undergraduate Fraternity, Sigma Phi Epsilon, as well as other 501(3) (c) non-profits in his new found extra time.</p>
+            
+            <!-- 3-Column Image & Text Row -->
+            <div class="three-column-row">
+                <!-- Left Column: Ship Image -->
+                <div class="col image-col-1">
+                    <img src="cruise.png" alt="Eurodam Ship">
+                </div>
+
+                <!-- Middle Column: Caption -->
+                <div class="col middle-text">
+                    <p>Eurodam<br>We traveled on this same ship in August, 2026 to Alaska for 1 week - So impressed we decided to share it with all of you next Fall in the Deep Caribbean.</p>
+                </div>
+
+                <!-- Right Column: Beach Image -->
+                <div class="col image-col-2">
+                    <img src="stan.png" alt="Stan on the beach">
+                </div>
+            </div>
+
+            <!-- Remaining Paragraphs -->
+            <p>Therefore, Stan has decided to resurrect the Target Travel Adventures Website to promote one more group vacation package as Tour Coordinator and Host for retirement celebration and one last major group adventure to The Deep Caribbean, November 13 to 21, 2027 from Fort Lauderdale, Florida - Cruise Port - “At Sea” two days to Grand Turk, Turks and Caicos, Day 3 San Juan, PR, Day 4 St. Thomas, US Virgin Islands, Day 5 Sint Maarten, Day 6 “At Sea”, Day 7 To Half Moon Bay, private island in the Bahamas, and Day 8 return to Fort Lauderdale by 8 A.M. Sunday morning, 11/21/27, before Thanksgiving holiday weekend with family and friends.</p>
+            
+            <p>All inclusive sailing details will be provided by separate attachment on website for your review and consideration, for booking directly with our dedicated travel consultant with Holland American Cruise Lines beginning December 1, 2026 and bookings closing July 15, 2027, for “Have It All” - Early Booking - Group Rate - Promotion and Bonus Package. Contact Stan for questions and answers - Go Bears!</p>
+            
+            <!-- Call to Action Text -->
+            <p>See links below to download more information.</p>
+        </section>
+
+        <!-- Divider -->
+        <hr class="divider">
+
+        <!-- Download Links -->
+        <section class="links-section">
+            <div class="button-group">
+                <!-- Downloadable Links referencing the local files -->
+                <a href="Deep Caribbean Trip.docx" download class="btn">
+                    <span>Deep Caribbean Trip</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                </a>
+                <a href="ONU POLAR BEAR EXPRESS.docx" download class="btn">
+                    <span>ONU Polar Bear Express</span>
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="contact-footer">
+            <h2>Contact</h2>
+            <div class="contact-info">
+                <div class="brand-name">TARGET TRAVEL ADVENTURES</div>
+                342 East Liberty Street, Medina, Ohio 44256<br>
+                Phone: 330-814-8115<br>
+                Email: sdsrelaw225@gmail.com<br>
+            </div>
+        </footer>
+
+    </div>
+
+</body>
+</html>
